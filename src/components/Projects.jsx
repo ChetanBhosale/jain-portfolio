@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import React from 'react';
+import Yt_thumbnail from '../assets/Yt_thumbnail.jpg';
 
 const Projects = () => {
   const [selectedVideo, setSelectedVideo] = useState(null);
@@ -9,32 +10,33 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Creative Video Project",
+      title: "Cinematic Edit",
       category: "editing",
-      videoId: "lLDIRmoWU40",
-      thumbnail: `https://img.youtube.com/vi/lLDIRmoWU40/maxresdefault.jpg`,
+      videoId: "AFNdAu8Xxzo",
+      thumbnail: `https://img.youtube.com/vi/AFNdAu8Xxzo/hqdefault.jpg`,
     },
     {
       id: 2,
       title: "Dynamic Edit Showcase",
       category: "motion",
       videoId: "POey-HV-Zk0",
-      thumbnail: `https://img.youtube.com/vi/POey-HV-Zk0/maxresdefault.jpg`,
-    },
-    {
-      id: 3,
-      title: "Visual Story",
-      category: "editing",
-      videoId: "QlCGGGoQKmw",
-      thumbnail: `https://img.youtube.com/vi/QlCGGGoQKmw/maxresdefault.jpg`,
+      thumbnail: `https://img.youtube.com/vi/POey-HV-Zk0/hqdefault.jpg`,
     },
     {
       id: 4,
       title: "Motion Graphics",
       category: "motion",
       videoId: "kIT5JZ81pfc",
-      thumbnail: `https://img.youtube.com/vi/kIT5JZ81pfc/maxresdefault.jpg`,
+      thumbnail: `https://img.youtube.com/vi/kIT5JZ81pfc/hqdefault.jpg`,
     },
+    {
+      id: 5,
+      title: "Special Edit",
+      category: "editing",
+      videoId: "6yM-UunIvkk",
+      thumbnail: Yt_thumbnail
+    },
+    
   ];
 
   const filters = ['all', 'editing', 'motion'];
@@ -53,7 +55,7 @@ const Projects = () => {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <h2 className="text-4xl font-bold mb-4">Featured Projects</h2>
+          <h2 className="text-4xl font-bold mb-4">My Youtube Edits</h2>
           <p className="text-gray-400 mb-8">Showcasing my best video editing work</p>
 
           {/* Filter Buttons */}
@@ -100,6 +102,10 @@ const Projects = () => {
                     src={project.thumbnail} 
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = `https://img.youtube.com/vi/${project.videoId}/mqdefault.jpg`;
+                    }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
                     <div className="absolute bottom-0 left-0 p-6">

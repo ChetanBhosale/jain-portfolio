@@ -1,26 +1,29 @@
 import { motion } from 'framer-motion';
 import React from 'react';
+import Wedding from '../assets/Wedding.png';
+import Automobile from '../assets/Auto_mobile.png';
+import Reels from '../assets/Reels.png';
 const Work = () => {
   const projects = [
     {
-      title: "Commercial: Brand Story",
-      category: "Advertisement",
+      title: "Commercial Edits",
       thumbnail: "https://images.unsplash.com/photo-1536240478700-b869070f9279?ixlib=rb-4.0.3",
+      link : "https://drive.google.com/drive/folders/1CT3OOatOsCrNttowCKbzLGLdmG5fwHWL"
     },
     {
-      title: "Music Video Edit",
-      category: "Music",
-      thumbnail: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?ixlib=rb-4.0.3",
+      title: "Wedding Edits",
+      thumbnail: Wedding,
+      link : "https://drive.google.com/drive/u/4/folders/1OikQwsacPR0ACA_c_GDWziN_ClP6gNQ_"
     },
     {
-      title: "Wedding Highlights",
-      category: "Events",
-      thumbnail: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?ixlib=rb-4.0.3",
+      title: "Automobile Edits",
+      thumbnail: Automobile,
+      link : "https://drive.google.com/drive/u/4/folders/1yI6zzAM-n0UW-yyOPrj2IdT1NQQu6Rmr",
     },
     {
-      title: "Travel Documentary",
-      category: "Documentary",
-      thumbnail: "https://images.unsplash.com/photo-1515634928627-2a4e0dae3ddf?ixlib=rb-4.0.3",
+      title: "Reels Edits",
+      thumbnail: Reels,
+      link : "https://drive.google.com/drive/folders/1Kyf3xlgoChgig0HxF59JhswAMaviHKaN?usp=sharing"
     }
   ];
 
@@ -65,7 +68,9 @@ const Work = () => {
                 whileHover={{ scale: 1.05 }}
                 className="absolute top-4 right-4 bg-purple-500 px-3 py-1 rounded-full text-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"
               >
-                View Project
+                <a href={project.link} target="_blank" rel="noopener noreferrer">
+                  View Project
+                </a>
               </motion.div>
             </motion.div>
           ))}
@@ -76,7 +81,9 @@ const Work = () => {
           className="text-center mt-12"
         >
           <button className="bg-gradient-to-r from-purple-500 to-pink-500 px-8 py-3 rounded-full text-white font-semibold">
-            View All Work
+            <a href="https://drive.google.com/drive/folders/1MLsd5dMPROPpDpu7K4DazT9xdxi4Y8cv" target="_blank" rel="noopener noreferrer">
+              View All Work
+            </a>
           </button>
         </motion.div>
       </div>

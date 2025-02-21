@@ -1,8 +1,10 @@
-import { motion, useScroll } from 'framer-motion';
+import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
-    import React from 'react';
+import React from 'react';
+
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { scrollY } = useScroll();
 
   useEffect(() => {
@@ -50,6 +52,7 @@ const Navbar = () => {
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.9 }}
           className="md:hidden p-2 hover:bg-purple-500/10 rounded-lg"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
         >
           <svg
             className="w-6 h-6 text-gray-300"
@@ -65,6 +68,30 @@ const Navbar = () => {
             />
           </svg>
         </motion.button>
+
+        {/* Mobile Menu */}
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="absolute top-full left-0 right-0 bg-black/90 backdrop-blur-md md:hidden"
+          >
+            <div className="container mx-auto px-6 py-4">
+              {['Home', 'Work', 'Projects', 'Contact'].map((item) => (
+                <motion.a
+                  key={item}
+                  whileHover={{ scale: 1.05 }}
+                  className="block py-2 text-gray-300 hover:text-white transition-colors"
+                  href={`#${item.toLowerCase()}`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {item}
+                </motion.a>
+              ))}
+            </div>
+          </motion.div>
+        )}
       </div>
     </motion.nav>
   );

@@ -5,10 +5,10 @@ const Hero = () => {
     <div className="min-h-screen relative overflow-hidden bg-black">
       {/* Animated background gradient */}
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-900/20 to-pink-900/20 animate-gradient" />
-        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-500/10 rounded-full filter blur-3xl animate-blob" />
-        <div className="absolute top-0 right-0 w-96 h-96 bg-pink-500/10 rounded-full filter blur-3xl animate-blob animation-delay-2000" />
-        <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-blue-500/10 rounded-full filter blur-3xl animate-blob animation-delay-4000" />
+        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/30 via-black to-pink-900/30 animate-gradient" />
+        <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-purple-500/20 rounded-full filter blur-[100px] animate-blob" />
+        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-pink-500/20 rounded-full filter blur-[100px] animate-blob animation-delay-2000" />
+        <div className="absolute -bottom-32 left-1/2 w-[500px] h-[500px] bg-blue-500/20 rounded-full filter blur-[100px] animate-blob animation-delay-4000" />
       </div>
 
       {/* Main content */}
@@ -54,8 +54,7 @@ const Hero = () => {
               transition={{ delay: 0.3, duration: 0.8 }}
               className="text-xl md:text-2xl text-gray-400 mb-12 leading-relaxed"
             >
-              Professional Video Editor & Motion Designer crafting compelling visual narratives 
-              that captivate and inspire audiences worldwide.
+             From pixels to perfection—I design, animate, and enhance. As a Video Editor, VFX Artist, Graphic Designer, and Motion Poster Creator, I bring visions to life with cinematic flair.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -68,6 +67,9 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  document.getElementById('work').scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full text-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-all duration-300"
               >
                 View My Work
@@ -75,6 +77,9 @@ const Hero = () => {
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() => {
+                  document.getElementById('contact').scrollIntoView({ behavior: 'smooth' });
+                }}
                 className="px-8 py-4 border border-purple-500/50 rounded-full text-lg font-semibold hover:bg-purple-500/10 transition-all duration-300"
               >
                 Contact Me
