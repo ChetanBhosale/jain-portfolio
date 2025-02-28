@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import React from 'react';
 import Wedding from '../assets/Wedding.png';
-import Automobile from '../assets/Auto_mobile.png';
+import Automobile from '../assets/carr.jpg';
 import Reels from '../assets/Reels.png';
 const Work = () => {
   const projects = [
